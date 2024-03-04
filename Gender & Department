@@ -1,0 +1,19 @@
+--Attrition
+
+--Attrition by Gender
+
+SELECT gender, COUNT(attrition) AS attrition_count FROM hrdata
+WHERE attrition='Yes' AND department = 'R&D'
+GROUP BY gender
+ORDER BY COUNT(attrition) DESC;
+
+--Department wise Attrition
+
+SELECT department, COUNT(attrition),
+ROUND((CAST (COUNT(attrition) AS numeric) / 
+(SELECT COUNT(attrition)
+FROM hrdata
+WHERE attrition= 'Yes')) * 100, 2) AS pct FROM hrdata
+WHERE attrition='Yes'
+GROUP BY department 
+ORDER BY COUNT(attrition) DESC;
