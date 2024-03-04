@@ -9,6 +9,15 @@ WHERE attrition='Yes'
 AND department = 'R&D' 
 AND education = 'Doctoral Degree';
 
+SELECT COUNT(attrition) FROM hrdata
+WHERE attrition='Yes'
+AND department = 'Sales' 
+AND education = 'High School';
+
+SELECT COUNT(attrition) FROM hrdata
+WHERE attrition='Yes'
+AND department = 'HR' 
+
 --Attrition Rate
 
 SELECT ROUND (((SELECT COUNT(attrition) 
