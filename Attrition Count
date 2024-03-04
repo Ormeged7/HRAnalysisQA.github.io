@@ -1,4 +1,18 @@
+--Attrition
+
+--Attrition Count
+
+--Filtered by Education and Department
+
 SELECT COUNT(attrition) FROM hrdata
 WHERE attrition='Yes'
 AND department = 'R&D' 
 AND education = 'Doctoral Degree';
+
+--Attrition Rate
+
+SELECT ROUND (((SELECT COUNT(attrition) 
+FROM hrdata
+WHERE attrition='Yes')/ 
+SUM(employee_count)) * 100,2)
+FROM hrdata;
