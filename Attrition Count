@@ -1,0 +1,4 @@
+SELECT COUNT(attrition) FROM hrdata
+WHERE attrition='Yes'
+AND department = 'R&D' 
+AND education = 'Doctoral Degree';
